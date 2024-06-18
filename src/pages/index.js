@@ -1,9 +1,18 @@
-import React from 'react'
+import Discover from './Discover';
+import TopArtists from './TopArtists';
+import ArtistDetails from './ArtistDetails';
+import SongDetails from './SongDetails';
+import Search from './Search';
+import TopCharts from './TopCharts';
+import AroundYou from './AroundYou';
 
-function index() {
-  return (
-    <div>index</div>
-  )
-}
+export {
+  Discover,
+  TopArtists,
+  ArtistDetails,
+  SongDetails,
+  Search,
+  TopCharts,
+  AroundYou,
+};
 
-export default index
