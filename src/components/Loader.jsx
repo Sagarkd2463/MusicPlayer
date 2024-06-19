@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { loader } from '../assets';
 
-function Loader() {
+function Loader({ title }) {
   return (
-    <div>Loader</div>
-  )
-}
+    <div className=''>
+      <img src={loader} alt="loader" className=''/>
+      <h1 className=''>
+        {title || 'Loading...'}
+      </h1>
+    </div>
+  );
+};
 
-export default Loader
+export default Loader;
