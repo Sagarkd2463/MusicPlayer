@@ -24,17 +24,20 @@ function SongDetails() {
     dispatch(playPause(true));
   };
 
-  if(isFetchingSongDetails || isFetchingRelatedSongs){
+  if (isFetchingSongDetails || isFetchingRelatedSongs) {
     return <Loader title="Searching song details.." />;
   }
 
-  if(error){
+  if (error) {
     return <Error />;
   }
 
   return (
     <div className=''>
-      <DetailsHeader artistId={artistId} songData={songData} />
+      <DetailsHeader
+        artistId=""
+        songData={songData}
+      />
 
       <div className=''>
         <h2 className=''>Lyrics:</h2>
@@ -47,11 +50,11 @@ function SongDetails() {
       </div>
 
       <RelatedSongs
-      data={data}
-      isPlaying={isPlaying}
-      activeSong={activeSong}
-      handlePauseClick={handlePauseClick}
-      handlePlayClick={() => handlePlayClick()}
+        data={data}
+        isPlaying={isPlaying}
+        activeSong={activeSong}
+        handlePauseClick={handlePauseClick}
+        handlePlayClick={() => handlePlayClick()}
       />
     </div>
   );
