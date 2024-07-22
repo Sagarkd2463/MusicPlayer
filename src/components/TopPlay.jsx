@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
@@ -99,7 +98,6 @@ function TopPlay() {
           freeMode
           centeredSlides
           centeredSlidesBounds
-          modules={[FreeMode]}
           className=''>
           {topPlays?.map((song, i) => (
             <SwiperSlide

@@ -1,0 +1,27 @@
+.artist-main {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    --bg-opacity: 0.8;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    width: 250px;
+}
+
+.artist-img {
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 14rem;
+}
+
+.track-subtitle {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

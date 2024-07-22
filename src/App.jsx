@@ -10,14 +10,14 @@ function App() {
   const { activeSong } = useSelector((state) => state.player);
 
   return (
-    <div className=''>
+    <div className='sidebar'>
       <Sidebar />
 
-      <div className=''>
+      <div className='searchbar'>
       <SearchBar />
 
-      <div className=''>
-        <div className=''>
+      <div className='routes'>
+        <div className='sub-routes'>
           <Routes>
             <Route path='/' element={<Discover />}/>
             <Route path='/top-artists' element={<TopArtists />}/>
@@ -28,14 +28,14 @@ function App() {
             <Route path='/search/:searchTerm' element={<Search />}/>
           </Routes>
         </div>
-        <div className=''>
+        <div className='top-play'>
           <TopPlay />
         </div>
       </div>
       </div>
 
       {activeSong?.title && (
-        <div className=''>
+        <div className='music-player'>
           <MusicPlayer />
         </div>
       )}

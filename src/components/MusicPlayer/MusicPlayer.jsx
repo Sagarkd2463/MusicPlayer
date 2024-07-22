@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './musicStyles.css';
 
 import { nextSong, prevSong, playPause } from '../../redux/features/playerSlice';
 import Controls from './Controls';
@@ -58,9 +59,9 @@ function MusicPlayer() {
 
 
   return (
-    <div className=''>
+    <div className='player-main'>
       <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} />
-      <div className=''>
+      <div className='track'>
         <Controls
           isPlaying={isPlaying}
           isActive={isActive}
