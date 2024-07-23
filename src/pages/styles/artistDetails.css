@@ -1,0 +1,4 @@
+.artist-details {
+    display: flex;
+    flex-direction: column;
+}

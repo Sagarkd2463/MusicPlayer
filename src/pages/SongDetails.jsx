@@ -5,6 +5,7 @@ import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 
 import { setActiveSong, playPause } from '../redux/features/playerSlice';
 import { useGetSongDetailsQuery, useGetRelatedSongsQuery } from '../redux/services/shazamCore';
+import './styles/songDetails.css';
 
 function SongDetails() {
 
@@ -33,19 +34,19 @@ function SongDetails() {
   }
 
   return (
-    <div className=''>
+    <div className='song-details'>
       <DetailsHeader
         artistId=""
         songData={songData}
       />
 
-      <div className=''>
-        <h2 className=''>Lyrics:</h2>
-        <div className=''>
+      <div className='details-main'>
+        <h2 className='details-lyrics'>Lyrics:</h2>
+        <div className='lyrics'>
           {songData?.sections[1].type === 'LYRICS'
             ? songData?.sections[1].text.map((line, i) => (
-              <p className=''>{line}</p>
-            )) : <p className=''>Sorry, no lyrics found!</p>}
+              <p key={`lyrics-${line}-${i}`} className='lyrics-line'>{line}</p>
+            )) : <p className='no-lyrics'>Sorry, no lyrics found!</p>}
         </div>
       </div>
 

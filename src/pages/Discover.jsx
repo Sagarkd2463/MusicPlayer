@@ -4,6 +4,7 @@ import { genres } from '../assets/constants';
 import { useGetSongsByGenreQuery } from '../redux/services/shazamCore';
 import { selectGenreListId } from '../redux/features/playerSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import './styles/discover.css';
 
 function Discover() {
 
@@ -24,13 +25,13 @@ function Discover() {
   const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
 
   return (
-    <div className=''>
-      <div className=''>
-        <h2 className=''>Discover {genreTitle}</h2>
+    <div className='discover-main'>
+      <div className='discover-sub'>
+        <h2 className='discover-title'>Discover {genreTitle}</h2>
         <select
           onChange={(e) => dispatch(selectGenreListId(e.target.value))}
           value={genreListId || 'pop'}
-          className=''
+          className='select-genre'
         >
           {genres.map((genre) => {
             <option key={genre.value}
@@ -41,7 +42,7 @@ function Discover() {
         </select>
       </div>
 
-      <div className=''>
+      <div className='songs'>
         {data?.map((song, i) => {
           <SongCard
             key={song.key}

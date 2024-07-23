@@ -1,0 +1,29 @@
+.search-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-title {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    text-align: left;
+    color: #ffffff;
+}
+
+.search-term {
+    font-weight: 900;
+}
+
+.search-songs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+
+    @media (min-width: 640px) {
+        justify-content: flex-start;
+    }
+}

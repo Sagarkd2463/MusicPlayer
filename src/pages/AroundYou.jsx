@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { Error, Loader, SongCard } from '../components';
 import { useGetSongsByCountryQuery } from '../redux/services/shazamCore';
+import './styles/aroundYou.css';
 
 function AroundYou() {
 
@@ -26,12 +27,12 @@ function AroundYou() {
   if (error && country) return <Error />;
 
   return (
-    <div className=''>
-      <h2 className=''>
+    <div className='around-you-main'>
+      <h2 className='around-you-title'>
         Around You
-        <span className=''>{country}</span>
+        <span className='country-name'>{country}</span>
       </h2>
-      <div className=''>
+      <div className='songs'>
         {data?.map((song, i) => (
           <SongCard
             key={song.key}

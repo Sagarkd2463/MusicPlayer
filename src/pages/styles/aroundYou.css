@@ -1,0 +1,29 @@
+.around-you-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.around-you-title {
+    margin-top: 1rem;
+    flex-direction: column;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 700;
+    text-align: left;
+    color: #ffffff;
+}
+
+.country-name {
+    font-weight: 900;
+}
+
+.songs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+
+    @media (min-width: 640px) {
+        justify-content: flex-start;
+    }
+}

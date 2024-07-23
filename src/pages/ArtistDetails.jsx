@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
+import './styles/artistDetails.css';
 
 function ArtistDetails() {
 
@@ -20,7 +21,7 @@ function ArtistDetails() {
   }
 
   return (
-    <div className=''>
+    <div className='artist-details'>
       <DetailsHeader
         artistId={artistId}
         artistData={artistData}

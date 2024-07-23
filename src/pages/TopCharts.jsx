@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Error, Loader, SongCard } from '../components';
 import { useGetTopChartsQuery } from '../redux/services/shazamCore';
+import './styles/topCharts.css';
 
 function TopCharts() {
 
@@ -15,11 +16,11 @@ function TopCharts() {
   if (error) return <Error />;
 
   return (
-    <div className=''>
-      <h2 className=''>
+    <div className='top-charts'>
+      <h2 className='top-charts-title'>
         Discover Top Charts
       </h2>
-      <div className=''>
+      <div className='top-charts-songs'>
         {data?.map((song, i) => (
           <SongCard
             key={song.key}
