@@ -18,27 +18,28 @@ function SongCard({ song, i, isPlaying, activeSong, data }) {
   };
 
   return (
-    <div className=''>
-      <div className=''>
-        <div className={``}>
-          <PlayPause 
-          song={song}
-          isPlaying={isPlaying}
-          activeSong={activeSong}
-          handlePause={handlePauseClick}
-          handlePlay={handlePlayClick}
+    <div className='songcard-main'>
+      <div className='songcard-sub'>
+        <div className={`songcard-playpause ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
+          <PlayPause
+            song={song}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            handlePause={handlePauseClick}
+            handlePlay={handlePlayClick}
           />
         </div>
-        <img src={song.images?.coverart} alt='song_img' />
+        <img src={song.images?.coverart} alt='song_img'
+          className='songcard-img' />
       </div>
-      <div className=''>
-        <p className=''>
+      <div className='songcard-songs'>
+        <p className='songcard-songs-link'>
           <Link to={`/songs/${song?.key}`}>
             {song.title}
           </Link>
         </p>
 
-        <p className=''>
+        <p className='songcard-songs-artist'>
           <Link to={song.artists ? `/artists/${song?.artists[0]?.adamid}` : '/top-artists'}>
             {song.subtitle}
           </Link>

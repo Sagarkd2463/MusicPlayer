@@ -6,33 +6,33 @@ function DetailsHeader({ artistId, artistData, songData }) {
   const artistDetails = artistData?.artists[artistId]?.attributes;
 
   return (
-    <div className=''>
-      <div className='' />
+    <div className='details-header-main'>
+      <div className='details-header-sub' />
 
-      <div className=''>
+      <div className='details-header-img'>
         <img src={artistId ? artistDetails?.artwork?.url.replace('{w}', '500').replace('{h}', '500')
           : songData?.images?.coverart}
           alt="art"
-          className='' />
+          className='img-details' />
 
-        <div className=''>
-          <p className=''>{artistId ? artistDetails?.name : songData?.title}</p>
+        <div className='artist-details'>
+          <p className='artist-details-title'>{artistId ? artistDetails?.name : songData?.title}</p>
           {!artistId && (
             <Link to={`/artists/${songData?.artists[0].adamid}`}>
-            <p className=''>
-              {songData?.subtitle}
-            </p>
+              <p className='artist-details-subtitle'>
+                {songData?.subtitle}
+              </p>
             </Link>
           )}
 
-          <p className=''>
+          <p className='artist-details-genre'>
             {artistId ?
-             artistDetails.genreNames[0] : songData?.genres?.primary}
+              artistDetails.genreNames[0] : songData?.genres?.primary}
           </p>
         </div>
       </div>
 
-      <div className=''/>
+      <div className='artist-details-end' />
     </div>
   );
 };

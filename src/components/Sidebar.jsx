@@ -7,14 +7,14 @@ import { logo } from '../assets';
 import { links } from '../assets/constants';
 
 function NavLinks({ handleClick }) {
-  <div className=''>
+  <div className='navlinks'>
     {links.map((item) => (
       <NavLink
         key={item.name}
         to={item.to}
-        className=''
+        className='nav-link'
         onClick={() => handleClick && handleClick()}>
-        <item.icon className='' />
+        <item.icon className='nav-link-item' />
         {item.name}
       </NavLink>
     ))}
@@ -27,18 +27,18 @@ function SideBar() {
 
   return (
     <>
-      <div className=''>
-        <img src={logo} alt="logo" className='' />
+      <div className='sidebar-main'>
+        <img src={logo} alt="logo" className='sidebar-img' />
         <NavLinks />
       </div>
 
-      <div className=''>
-        {mobileMenuOpen ? (<RiCloseLine className='' onClick={() => setMobileMenuOpen(false)} />) :
-          <HiOutlineMenu className='' onClick={() => setMobileMenuOpen(true)} />}
+      <div className='sidebar-menu'>
+        {mobileMenuOpen ? (<RiCloseLine className='cross-icon' onClick={() => setMobileMenuOpen(false)} />) :
+          <HiOutlineMenu className='menu-icon' onClick={() => setMobileMenuOpen(true)} />}
       </div>
 
-      <div className=''>
-        <img src={logo} alt="logo" className='' />
+      <div className={`sidebar-end ${mobileMenuOpen ? 'left-0' : '-left-full'}`}>
+        <img src={logo} alt="logo" className='sidebar-logo' />
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
       </div>
     </>

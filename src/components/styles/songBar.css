@@ -1,0 +1,71 @@
+.songbar-main-one {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.songbar-main-one:hover {
+    background: #4c426e;
+}
+
+.songbar-main-two {
+    padding: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.songbar-sub {
+    margin-right: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.songbar-sub-one {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.songbar-img img {
+    border-radius: 0.5rem;
+    width: 5rem;
+    height: 5rem;
+}
+
+.songbar-artist {
+    display: flex;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    flex-direction: column;
+    flex: 1 1 0%;
+    justify-content: center;
+}
+
+.songbar-artist-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.songbar-song {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.songbar-subtitle {
+    margin-top: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #D1D5DB;
+}

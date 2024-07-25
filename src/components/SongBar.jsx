@@ -4,29 +4,31 @@ import PlayPause from './PlayPause';
 
 function SongBar({ song, i, artistId, isPlaying, activeSong, handlePauseClick, handlePlayClick }) {
   return (
-    <div className=''>
-      <h3 className=''>{i + 1}</h3>
-      <div className=''>
+    <div className={`songbar-main-one ${activeSong?.title === song?.title ? 'bg-[#4c426e]' : 'bg-transparent'} songbar-main-two`}>
+      <h3 className='songbar-sub'>{i + 1}</h3>
+      <div className='songbar-sub-one'>
 
-        <img src={artistId ? song?.attributes?.artwork?.url.replace('{w}', '125').replace('{h}', '125') :
-          song?.images?.coverart}
+        <img
+          className='songbar-img'
+          src={artistId ? song?.attributes?.artwork?.url.replace('{w}', '125').replace('{h}', '125') :
+            song?.images?.coverart}
           alt={song?.title}
         />
 
-        <div className=''>
+        <div className='songbar-artist'>
           {!artistId ? (
             <Link to={`/songs/${song.key}`}>
-              <p className=''>
+              <p className='songbar-artist-title'>
                 {song?.title}
               </p>
             </Link>
           ) : (
-            <p className=''>
+            <p className='songbar-song'>
               {song?.attributes?.name}
             </p>
           )}
 
-          <p className=''>
+          <p className='songbar-subtitle'>
             {artistId ? song?.attributes?.albumName : song?.subtitle}
           </p>
         </div>
