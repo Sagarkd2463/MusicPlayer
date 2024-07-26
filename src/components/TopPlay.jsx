@@ -9,20 +9,20 @@ import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
+import './styles/topPlay.css';
 
 const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
-  <div className=''>
-    {song.title}
-    <h3 className=''>{i + 1}.</h3>
-    <div className=''>
-      <img src={song?.images?.coverart} alt={song?.title} className='' />
-      <div className=''>
+  <div className={`top-chart-main-one ${activeSong?.title === song?.title ? 'bg-[#4c426e]' : 'bg-transparent'} top-chart-main-two`}>
+    <h3 className='top-chart-sub'>{i + 1}.</h3>
+    <div className='top-chart-sub-one'>
+      <img className='top-chart-img' src={song?.images?.coverart} alt={song?.title} />
+      <div className='top-chart-link'>
         <Link to={`/songs/${song.key}`}>
-          <p className=''>{song?.title}</p>
+          <p className='top-chart-song-title'>{song?.title}</p>
         </Link>
 
         <Link to={`/artists/${song?.artists[0].adamid}`}>
-          <p className=''>{song?.subtitle}</p>
+          <p className='top-chart-song-subtitle'>{song?.subtitle}</p>
         </Link>
       </div>
     </div>
@@ -60,16 +60,16 @@ function TopPlay() {
   };
 
   return (
-    <div ref={divRef} className=''>
-      <div className=''>
-        <div className=''>
-          <h2 className=''>Top Charts</h2>
+    <div ref={divRef} className='top-play-main'>
+      <div className='top-play-sub'>
+        <div className='top-play-part-one'>
+          <h2 className='top-play-chart-title'>Top Charts</h2>
           <Link to={'/top-charts'}>
-            <p className=''>See more</p>
+            <p className='top-play-chart-link'>See more</p>
           </Link>
         </div>
 
-        <div className=''>
+        <div className='top-play-song'>
           {topPlays?.map((song, i) => (
             <TopChartCard
               key={song.key}
@@ -84,11 +84,11 @@ function TopPlay() {
         </div>
       </div>
 
-      <div className=''>
-        <div className=''>
-          <h2 className=''>Top Artists</h2>
+      <div className='top-artists-main'>
+        <div className='top-artists-sub'>
+          <h2 className='top-play-artist-title'>Top Artists</h2>
           <Link to={'/top-artists'}>
-            <p className=''>See more</p>
+            <p className='top-play-artist-link'>See more</p>
           </Link>
         </div>
 
@@ -98,14 +98,14 @@ function TopPlay() {
           freeMode
           centeredSlides
           centeredSlidesBounds
-          className=''>
+          className='top-play-swiper'>
           {topPlays?.map((song, i) => (
             <SwiperSlide
               key={song?.key}
               style={{ width: '25%', height: 'auto' }}
-              className=''>
+              className='top-play-slider'>
               <Link to={`/artists/${song?.artists[0].adamid}`}>
-                <img src={song?.images.background} alt='' className='' />
+                <img className='top-play-slider-img' src={song?.images.background} alt='Name' />
               </Link>
             </SwiperSlide>
           ))}

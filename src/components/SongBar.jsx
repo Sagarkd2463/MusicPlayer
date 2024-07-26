@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PlayPause from './PlayPause';
+import './styles/songBar.css';
 
 function SongBar({ song, i, artistId, isPlaying, activeSong, handlePauseClick, handlePlayClick }) {
   return (

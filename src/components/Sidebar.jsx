@@ -5,6 +5,7 @@ import { HiOutlineMenu } from 'react-icons/hi';
 
 import { logo } from '../assets';
 import { links } from '../assets/constants';
+import './styles/sideBar.css';
 
 function NavLinks({ handleClick }) {
   <div className='navlinks'>
