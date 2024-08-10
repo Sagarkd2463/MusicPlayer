@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { Error, Loader, SongCard } from '../components';
-import { useGetSongsByCountryQuery } from '../redux/services/shazamCore';
+import { useGetSongsByCountryQuery } from '../redux/services/spotifyApi';
 import './styles/aroundYou.css';
 
 function AroundYou() {

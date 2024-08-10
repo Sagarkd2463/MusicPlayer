@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 
 import { setActiveSong, playPause } from '../redux/features/playerSlice';
-import { useGetSongDetailsQuery, useGetRelatedSongsQuery } from '../redux/services/shazamCore';
+import { useGetSongDetailsQuery, useGetRelatedSongsQuery } from '../redux/services/spotifyApi';
 import './styles/songDetails.css';
 
 function SongDetails() {

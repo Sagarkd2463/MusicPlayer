@@ -1,6 +1,6 @@
 import React from 'react';
 import { Error, Loader, ArtistCard } from '../components';
-import { useGetTopChartsQuery } from '../redux/services/shazamCore';
+import { useGetTopChartsQuery } from '../redux/services/spotifyApi';
 import './styles/topArtists.css';
 
 function TopArtists() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Error, Loader, SongCard } from '../components';
 import { genres } from '../assets/constants';
-import { useGetSongsByGenreQuery } from '../redux/services/shazamCore';
+import { useGetSongsByGenreQuery } from '../redux/services/spotifyApi';
 import { selectGenreListId } from '../redux/features/playerSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import './styles/discover.css';
