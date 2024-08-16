@@ -19,12 +19,16 @@ function TopArtists() {
         Top Artists
       </h2>
       <div className='artist-track'>
-        {data?.map((track) => (
-          <ArtistCard
-            key={track.key}
-            track={track}
-          />
-        ))}
+        {Array.isArray(data) ? (
+          data.map((track) => (
+            <ArtistCard
+              key={track.key}
+              track={track}
+            />
+          ))
+        ) : (
+          <p>No tracks available</p>
+        )}
       </div>
     </div>
   );

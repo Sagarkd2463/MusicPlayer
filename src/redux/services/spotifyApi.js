@@ -38,12 +38,12 @@ export const spotifyApi = createApi({
     },
     endpoints: (builder) => ({
         getTopCharts: builder.query({ query: () => `/browse/new-releases`, keepUnusedDataFor: 60 }),
-        getSongsByGenre: builder.query({ query: (genre) => `/recommendations?seed_genres=${genre}`, keepUnusedDataFor: 60 }),
+        getSongsByGenre: builder.query({ query: (genreId) => `/recommendations?seed_genres=${genreId}`, keepUnusedDataFor: 60 }),
         getSongDetails: builder.query({ query: ({ songid }) => `/tracks/${songid}`, keepUnusedDataFor: 60 }),
         getRelatedSongs: builder.query({ query: ({ songid }) => `/recommendations?seed_tracks=${songid}`, keepUnusedDataFor: 60 }),
         getArtistDetails: builder.query({ query: (artistId) => `/artists/${artistId}`, keepUnusedDataFor: 60 }),
         getSongsByCountry: builder.query({ query: (countryCode) => `/browse/new-releases?country=${countryCode}`, keepUnusedDataFor: 60 }),
-        getSongsBySearch: builder.query({ query: (searchTerm) => `/search?q=${searchTerm}&type=track,artist`, keepUnusedDataFor: 60 }),
+        getSongsBySearch: builder.query({ query: (searchTerm) => `/search?q=${searchTerm}?type=`, keepUnusedDataFor: 60 }),
     }),
 });
 

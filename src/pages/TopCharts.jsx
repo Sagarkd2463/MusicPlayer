@@ -21,16 +21,20 @@ function TopCharts() {
         Discover Top Charts
       </h2>
       <div className='top-charts-songs'>
-        {data?.map((song, i) => (
-          <SongCard
-            key={song.key}
-            song={song}
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            data={data}
-            i={i}
-          />
-        ))}
+        {Array.isArray(data) ? (
+          data.map((song, i) => (
+            <SongCard
+              key={song.key}
+              song={song}
+              isPlaying={isPlaying}
+              activeSong={activeSong}
+              data={data}
+              i={i}
+            />
+          ))
+        ) : (
+          <p>No songs available</p>
+        )}
       </div>
     </div>
   );
