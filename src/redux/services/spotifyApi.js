@@ -5,8 +5,19 @@ const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
 const tokenUrl = 'https://accounts.spotify.com/api/token';
 
+let token = null;
+let tokenExpirationTime = 0;
+
 // Helper function to get the token
 const getToken = async () => {
+    const currentTime = new Date().getTime();
+
+    // Check if the token is still valid
+    if (token && currentTime < tokenExpirationTime) {
+        return token;
+    }
+
+    // If the token is invalid or expired, fetch a new one
     const credentials = `${clientId}:${clientSecret}`;
     const encodedCredentials = base64Encode(credentials);
 
@@ -20,30 +31,51 @@ const getToken = async () => {
     });
 
     const authData = await authResponse.json();
-    return authData.access_token;
+    token = authData.access_token;
+    tokenExpirationTime = currentTime + authData.expires_in * 1000; // expires_in is in seconds
+
+    return token;
 };
 
 export const spotifyApi = createApi({
     reducerPath: 'spotifyApi',
-    baseQuery: async (args, api, extraOptions) => {
-        const token = await getToken();
-        const baseQuery = fetchBaseQuery({
-            baseUrl: 'https://api.spotify.com/v1',
-            prepareHeaders: (headers) => {
-                headers.set('Authorization', `Bearer ${token}`);
-                return headers;
-            },
-        });
-        return baseQuery(args, api, extraOptions);
-    },
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://api.spotify.com/v1',
+        prepareHeaders: async (headers) => {
+            const token = await getToken();
+            headers.set('Authorization', `Bearer ${token}`);
+            return headers;
+        },
+    }),
     endpoints: (builder) => ({
-        getTopCharts: builder.query({ query: () => `/browse/new-releases`, keepUnusedDataFor: 60 }),
-        getSongsByGenre: builder.query({ query: (genreId) => `/recommendations?seed_genres=${genreId}`, keepUnusedDataFor: 60 }),
-        getSongDetails: builder.query({ query: ({ songid }) => `/tracks/${songid}`, keepUnusedDataFor: 60 }),
-        getRelatedSongs: builder.query({ query: ({ songid }) => `/recommendations?seed_tracks=${songid}`, keepUnusedDataFor: 60 }),
-        getArtistDetails: builder.query({ query: (artistId) => `/artists/${artistId}`, keepUnusedDataFor: 60 }),
-        getSongsByCountry: builder.query({ query: (countryCode) => `/browse/new-releases?country=${countryCode}`, keepUnusedDataFor: 60 }),
-        getSongsBySearch: builder.query({ query: (searchTerm) => `/search?q=${searchTerm}?type=`, keepUnusedDataFor: 60 }),
+        getTopCharts: builder.query({
+            query: () => `/browse/new-releases`,
+            keepUnusedDataFor: 60,
+        }),
+        getSongsByGenre: builder.query({
+            query: (genreId) => `/recommendations?seed_genres=${genreId}`,
+            keepUnusedDataFor: 60,
+        }),
+        getSongDetails: builder.query({
+            query: ({ songid }) => `/tracks/${songid}`,
+            keepUnusedDataFor: 60,
+        }),
+        getRelatedSongs: builder.query({
+            query: ({ songid }) => `/recommendations?seed_tracks=${songid}`,
+            keepUnusedDataFor: 60,
+        }),
+        getArtistDetails: builder.query({
+            query: (artistId) => `/artists/${artistId}`,
+            keepUnusedDataFor: 60,
+        }),
+        getSongsByCountry: builder.query({
+            query: (countryCode) => `/browse/new-releases?country=${countryCode}`,
+            keepUnusedDataFor: 60,
+        }),
+        getSongsBySearch: builder.query({
+            query: (searchTerm) => `/search?q=${searchTerm}&type=track`,
+            keepUnusedDataFor: 60,
+        }),
     }),
 });
 
