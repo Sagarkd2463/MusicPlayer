@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .sidebar {
     display: flex;
     position: relative;
@@ -52,4 +53,10 @@
     height: 7rem;
     background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
     backdrop-filter: blur(16px);
+=======
+.bg-screen {
+    background-color: black;
+    height: max-content;
+    width: 100%;
+>>>>>>> f18aff1 (completely changed the project components)
 }

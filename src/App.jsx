@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
@@ -44,3 +45,24 @@ function App() {
 };
 
 export default App;
+=======
+import React from 'react'
+import Sidebar from './components/Sidebar'
+import './App.css'
+import Player from './components/Player'
+import Display from './components/Display'
+
+const App = () => {
+  return (
+    <div className='bg-screen'>
+      <div className='screen-sub'>
+        <Sidebar />
+        <Display />
+      </div>
+      <Player />
+    </div>
+  )
+}
+
+export default App
+>>>>>>> f18aff1 (completely changed the project components)
