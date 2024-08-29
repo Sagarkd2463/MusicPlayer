@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { PlayerContext } from '../context/PlayerContext'
 
 const SongItem = ({ name, image, desc, id }) => {
+
+    const { playWithId } = useContext(PlayerContext);
+
     return (
-        <div className='song'>
+        <div onClick={() => playWithId(id)} className='song'>
             <img className='img-song' src={image} alt="" />
             <p className='song-name'>{name}</p>
             <p className='song-desc'>{desc}</p>
@@ -10,4 +14,4 @@ const SongItem = ({ name, image, desc, id }) => {
     )
 }
 
-export default SongItem
+export default SongItem;

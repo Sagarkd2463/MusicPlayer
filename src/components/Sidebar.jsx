@@ -1,11 +1,15 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { useNavigate } from 'react-router-dom'
 
 const Sidebar = () => {
+
+    const navigate = useNavigate();
+
     return (
         <div className='sidebar-main'>
             <div className='sidebar-sub'>
-                <div className='sidebar-sub-one'>
+                <div onClick={() => navigate('/')} className='sidebar-sub-one'>
                     <img className='img-home' src={assets.home_icon} alt="Home" />
                     <p className='home-title'>Home</p>
                 </div>
@@ -45,4 +49,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default Sidebar;

@@ -1,13 +1,17 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
+
     return (
         <>
             <div className='navbar'>
                 <div className='navbar-main'>
-                    <img className='img-arrow-left' src={assets.arrow_left} alt="" />
-                    <img className='img-arrow-right' src={assets.arrow_right} alt="" />
+                    <img onClick={() => navigate(-1)} className='img-arrow-left' src={assets.arrow_left} alt="" />
+                    <img onClick={() => navigate(+1)} className='img-arrow-right' src={assets.arrow_right} alt="" />
                 </div>
 
                 <div className='navbar-part'>
@@ -26,4 +30,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Navbar;
