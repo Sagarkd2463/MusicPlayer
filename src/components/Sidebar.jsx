@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
+import '../styles/Sidebar.css';
 
 const Sidebar = () => {
 
@@ -41,8 +42,8 @@ const Sidebar = () => {
 
                 <div className='sidebar-podcast'>
                     <h1>Let's find some podcasts to follow</h1>
-                    <p className='playlist-title'>We will keep you update on new episodes</p>
-                    <button className='playlist-btn'>Browse podcasts</button>
+                    <p className='podcast-title'>We will keep you update on new episodes</p>
+                    <button className='podcast-btn'>Browse podcasts</button>
                 </div>
             </div>
         </div>
