@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
-import DisplayHome from './DisplayHome'
-import DisplayAlbum from './DisplayAlbum'
-import { albumsData } from '../assets/assets'
+import React, { useEffect, useRef } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import DisplayHome from './DisplayHome';
+import DisplayAlbum from './DisplayAlbum';
+import { albumsData } from '../assets/assets';
+import '../styles/Display.css';
 
 const Display = () => {
 

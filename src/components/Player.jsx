@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
-import { assets } from '../assets/assets'
-import { PlayerContext } from '../context/PlayerContext'
+import React, { useContext } from 'react';
+import { assets } from '../assets/assets';
+import { PlayerContext } from '../context/PlayerContext';
+import '../styles/Player.css';
 
 const Player = () => {
 
@@ -16,7 +17,7 @@ const Player = () => {
                 </div>
             </div>
 
-            <div className='player-sub'>
+            <div className='player-sub-one'>
                 <div className='player-options'>
                     <img className='img-shuffle' src={assets.shuffle_icon} alt="" />
                     <img onClick={() => previous} className='img-previous' src={assets.prev_icon} alt="" />

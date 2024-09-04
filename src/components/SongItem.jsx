@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
-import { PlayerContext } from '../context/PlayerContext'
+import React, { useContext } from 'react';
+import { PlayerContext } from '../context/PlayerContext';
+import '../styles/SongItem.css';
 
 const SongItem = ({ name, image, desc, id }) => {
 

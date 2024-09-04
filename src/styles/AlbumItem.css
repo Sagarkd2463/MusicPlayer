@@ -1,0 +1,28 @@
+.album {
+    padding: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    min-width: 180px;
+}
+
+.album:hover {
+    background: #ffffff;
+}
+
+.img-album {
+    border-radius: 0.25rem;
+}
+
+.album-name {
+    margin-bottom: 0.25rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+}
+
+.album-desc {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(226 232 240);
+}

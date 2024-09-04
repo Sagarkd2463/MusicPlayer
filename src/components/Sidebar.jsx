@@ -1,6 +1,6 @@
-import React from 'react'
-import { assets } from '../assets/assets'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { assets } from '../assets/assets';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Sidebar.css';
 
 const Sidebar = () => {

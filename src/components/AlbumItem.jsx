@@ -1,5 +1,6 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/AlbumItem.css';
 
 const AlbumItem = ({ image, name, desc, id }) => {
 
@@ -14,4 +15,4 @@ const AlbumItem = ({ image, name, desc, id }) => {
     )
 }
 
-export default AlbumItem
+export default AlbumItem;
