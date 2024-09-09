@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
 import { albumsData, assets, songsData } from '../assets/assets';
 import { PlayerContext } from '../context/PlayerContext';
+import '../styles/DisplayAlbum.css';
 
 const DisplayAlbum = () => {
 
@@ -22,7 +23,7 @@ const DisplayAlbum = () => {
                     <p className='album-information'>
                         <img className='album-logo' src={assets.spotify_logo} alt="" />
                         <b>Spotify</b>
-                        1, 323, 154 likes
+                        &bull; 1, 323, 154 likes
                         <b>50 songs,</b>
                         about 2hr 30min
                     </p>

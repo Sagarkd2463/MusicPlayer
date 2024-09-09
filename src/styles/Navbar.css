@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .navbar-main {
@@ -15,7 +15,7 @@
 .img-arrow-left {
     padding: 0.5rem;
     border-radius: 1rem;
-    width: 2rem;
+    width: 1rem;
     background-color: #000000;
     cursor: pointer;
 }
@@ -23,7 +23,7 @@
 .img-arrow-right {
     padding: 0.5rem;
     border-radius: 1rem;
-    width: 2rem;
+    width: 1rem;
     background-color: #000000;
     cursor: pointer;
 }
@@ -36,15 +36,16 @@
 
 .navbar-explore {
     display: none;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
     border-radius: 1rem;
     color: #000000;
     background-color: #ffffff;
     cursor: pointer;
-    color: 15px;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 @media (min-width: 768px) {
@@ -54,10 +55,10 @@
 }
 
 .navbar-app {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.95rem;
+    padding-right: 0.95rem;
     border-radius: 1rem;
     background-color: #000000;
     cursor: pointer;
@@ -66,8 +67,8 @@
 
 .navbar-user {
     display: flex;
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 1.85rem;
+    height: 1.85rem;
     justify-content: center;
     align-items: center;
     border-radius: 9999px;
@@ -83,10 +84,10 @@
 }
 
 .all {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
     border-radius: 1rem;
     color: #000000;
     background-color: #ffffff;
@@ -94,20 +95,20 @@
 }
 
 .music {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
     border-radius: 1rem;
     background-color: #000000;
     cursor: pointer;
 }
 
 .podcasts {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
     border-radius: 1rem;
     background-color: #000000;
     cursor: pointer;

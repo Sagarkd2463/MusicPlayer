@@ -1,14 +1,15 @@
 .song {
     padding: 0.5rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
     border-radius: 0.25rem;
     cursor: pointer;
-    min-width: 180px;
+    min-width: 160px;
 }
 
 .song:hover {
     background: #ffffff;
+    color: black;
 }
 
 .img-song {
@@ -18,11 +19,19 @@
 .song-name {
     margin-bottom: 0.25rem;
     margin-top: 0.5rem;
-    font-weight: 700;
+    font-weight: 600;
+}
+
+.song-name:hover {
+    color: black;
 }
 
 .song-desc {
     font-size: 0.875rem;
     line-height: 1.25rem;
-    color: rgb(226 232 240);
+    font-weight: 500;
+}
+
+.song-desc:hover {
+    color: black;
 }

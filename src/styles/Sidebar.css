@@ -50,7 +50,7 @@
 .sidebar-sub-two {
     border-radius: 0.25rem;
     background: #121212;
-    height: 85%;
+    height: 82%;
 }
 
 .sidebar-part {
@@ -107,15 +107,15 @@
 }
 
 .playlist-btn {
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
+    padding-top: 0.475rem;
+    padding-bottom: 0.475rem;
     padding-left: 1rem;
     padding-right: 1rem;
     margin-top: 1rem;
     border-radius: 9999px;
     color: #000000;
     background-color: #ffffff;
-    color: 15px;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -139,16 +139,14 @@
 }
 
 .podcast-btn {
-    display: flex;
-    padding: 1rem;
+    padding-top: 0.475rem;
+    padding-bottom: 0.475rem;
     padding-left: 1rem;
-    margin: 0.5rem;
-    flex-direction: column;
-    gap: 0.25rem;
-    justify-content: flex-start;
-    align-items: flex-start;
-    border-radius: 0.25rem;
-    font-weight: 600;
-    background: #242424;
+    padding-right: 1rem;
+    margin-top: 1rem;
+    border-radius: 9999px;
+    color: #000000;
+    background-color: #ffffff;
+    font-size: 15px;
     cursor: pointer;
 }

@@ -1,16 +1,17 @@
 .displayhome {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .charts {
-    margin-top: 1.25rem;
-    margin-bottom: 1.25rem;
-    font-size: 1.5rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.25rem;
     line-height: 2rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .album-items {
     display: flex;
     overflow: auto;
+    gap: 1.2rem;
 }
