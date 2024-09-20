@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 
 export const PlayerContext = createContext();
 
-export const PlayerProvider = ({ children, initialState, reducer }) => (
+export const PlayerProvider = ({ initialState, reducer, children }) => (
     <PlayerContext.Provider value={useReducer(reducer, initialState)}>
         {children}
     </PlayerContext.Provider>

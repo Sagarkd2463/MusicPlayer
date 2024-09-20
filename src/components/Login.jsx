@@ -18,14 +18,16 @@ const Login = () => {
             'user-read-recently-played'
         ];
 
-        window.location.href = `${apiUrl}?client_id=${clientID}&redirect_uri=${redirectUrl}&scope=${scope.join(" ")}
-        &response_type=token&show_dialog=true`;
+        window.location.href = `${apiUrl}?client_id=${clientID}&redirect_uri=${redirectUrl}&scope=${scope.join(
+            " "
+        )}&response_type=token&show_dialog=true`;
     };
 
     return (
         <div className='container'>
-            <img className='spotify-logo' src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Full_Logo_RGB_Black-300x82.png" alt="spotify" />
-            <button onClick={handleClickSpotify} className='spotify-btn-connect'>Connect Spotify</button>
+            <img className='spotify-logo' src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Full_Logo_RGB_Green.png"
+                alt="spotify" />
+            <button onClick={handleClickSpotify} className='spotify-btn-connect'>Connect Spotify </button>
         </div>
     );
 };

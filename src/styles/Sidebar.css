@@ -1,152 +1,42 @@
-.sidebar-main {
-    display: none;
-    padding: 0.5rem;
+.container {
+    background-color: black;
+    color: #b3b3b3;
+    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     height: 100%;
-    color: #ffffff;
-    width: 25%;
+    width: 100%;
 }
 
-@media (min-width: 1024px) {
-    .sidebar-main {
-        display: flex;
-    }
-}
-
-.sidebar-sub {
+.top_links {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    border-radius: 0.25rem;
-    background: #121212;
-    height: 15%;
 }
 
-.sidebar-sub-one {
+.logo {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.spotify-logo {
+    max-inline-size: 80%;
+    block-size: auto;
+}
+
+.sidebar-list {
+    list-style-type: none;
     display: flex;
-    padding-left: 2rem;
-    gap: 0.75rem;
-    align-items: center;
-    cursor: pointer;
-}
-
-.img-home {
-    width: 1.5rem;
-}
-
-.home-title {
-    font-weight: 700;
-}
-
-.img-search {
-    width: 1.5rem;
-}
-
-.search-title {
-    font-weight: 700;
-}
-
-.sidebar-sub-two {
-    border-radius: 0.25rem;
-    background: #121212;
-    height: 82%;
-}
-
-.sidebar-part {
-    display: flex;
-    padding: 1rem;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.sidebar-part-one {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-}
-
-.img-library {
-    width: 2rem;
-}
-
-.library-title {
-    font-weight: 600;
-}
-
-.sidebar-icons {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-}
-
-.img-arrow {
-    width: 1.25rem;
-}
-
-.img-plus {
-    width: 1.25rem;
-}
-
-.sidebar-playlist {
-    display: flex;
-    padding: 1rem;
-    padding-left: 1rem;
-    margin: 0.5rem;
     flex-direction: column;
-    gap: 0.25rem;
-    justify-content: flex-start;
-    align-items: flex-start;
-    border-radius: 0.25rem;
-    font-weight: 600;
-    background: #242424;
-}
-
-.playlist-title {
-    font-weight: 300;
-}
-
-.playlist-btn {
-    padding-top: 0.475rem;
-    padding-bottom: 0.475rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-top: 1rem;
-    border-radius: 9999px;
-    color: #000000;
-    background-color: #ffffff;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.sidebar-podcast {
-    display: flex;
+    gap: 1rem;
     padding: 1rem;
-    padding-left: 1rem;
-    margin: 0.5rem;
-    margin-top: 1rem;
-    flex-direction: column;
-    gap: 0.25rem;
-    justify-content: flex-start;
-    align-items: flex-start;
-    border-radius: 0.25rem;
-    font-weight: 600;
-    background: #242424;
 }
 
-.podcast-title {
-    font-weight: 300;
-}
-
-.podcast-btn {
-    padding-top: 0.475rem;
-    padding-bottom: 0.475rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-top: 1rem;
-    border-radius: 9999px;
-    color: #000000;
-    background-color: #ffffff;
-    font-size: 15px;
+.sidebar-list li {
+    display: flex;
+    gap: 1rem;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.sidebar-list li:hover {
+    color: white;
 }
