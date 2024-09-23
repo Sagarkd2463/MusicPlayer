@@ -20,3 +20,12 @@
     width: 100%;
     overflow: auto;
 }
+
+.body::-webkit-scrollbar {
+    width: 0.7rem;
+    max-height: 2rem;
+}
+
+.body::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6);
+}

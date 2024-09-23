@@ -1,115 +1,59 @@
-.navbar {
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    font-weight: 500;
+    padding: 2rem;
+    height: 15vh;
+    position: sticky;
+    top: 0;
+    transition: 0.3s ease-in-out;
+    background-color: none;
 }
 
-.navbar-main {
+.search__bar {
+    background-color: white;
+    width: 30%;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
     display: flex;
+    align-items: center;
     gap: 0.5rem;
-    align-items: center;
 }
 
-.img-arrow-left {
-    padding: 0.5rem;
-    border-radius: 1rem;
-    width: 1rem;
-    background-color: #000000;
-    cursor: pointer;
+.search__bar input {
+    border: none;
+    height: 2rem;
+    width: 100%;
 }
 
-.img-arrow-right {
-    padding: 0.5rem;
-    border-radius: 1rem;
-    width: 1rem;
-    background-color: #000000;
-    cursor: pointer;
+.search__bar input:focus {
+    outline: none;
 }
 
-.navbar-part {
+.avatar {
+    background-color: black;
+    padding: 0.3rem 0.4rem;
+    padding-right: 1rem;
+    border-radius: 2rem;
     display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.navbar-explore {
-    display: none;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    border-radius: 1rem;
-    color: #000000;
-    background-color: #ffffff;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-@media (min-width: 768px) {
-    .navbar-explore {
-        display: block;
-    }
-}
-
-.navbar-app {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.95rem;
-    padding-right: 0.95rem;
-    border-radius: 1rem;
-    background-color: #000000;
-    cursor: pointer;
-    color: 15px;
-}
-
-.navbar-user {
-    display: flex;
-    width: 1.85rem;
-    height: 1.85rem;
     justify-content: center;
     align-items: center;
-    border-radius: 9999px;
-    color: #000000;
-    background-color: #8B5CF6;
 }
 
-.navbar-sub {
+.avatar a {
     display: flex;
-    margin-top: 1rem;
-    gap: 0.5rem;
+    justify-content: center;
     align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
 }
 
-.all {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
+.avatar svg {
+    font-size: 1.3rem;
+    background-color: #282828;
+    padding: 0.2rem;
     border-radius: 1rem;
-    color: #000000;
-    background-color: #ffffff;
-    cursor: pointer;
-}
-
-.music {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    border-radius: 1rem;
-    background-color: #000000;
-    cursor: pointer;
-}
-
-.podcasts {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    border-radius: 1rem;
-    background-color: #000000;
-    cursor: pointer;
+    color: #c7c5c5;
 }
