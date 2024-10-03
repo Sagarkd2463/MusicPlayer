@@ -5,7 +5,7 @@ import { usePlayerProvider } from '../context/PlayerContext';
 import axios from 'axios';
 import { reducerCases } from '../reducer/constants';
 
-const Display = () => {
+const Display = ({ headerBackground }) => {
 
   const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] = usePlayerProvider();
 
@@ -38,8 +38,15 @@ const Display = () => {
     getInitialPlaylist();
   }, [token, dispatch, selectedPlaylistId]);
 
+  const msToMinutesAndSeconds = (ms) => {
+    const minutes = Math.floor(ms / 60000);
+    const seconds = ((ms % 60000) / 1000).toFixed(0);
+
+    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  };
+
   return (
-    <div className='container'>
+    <div className='container' headerBackground={headerBackground} style={`${({ headerBackground }) => headerBackground ? "#000000dc" : "none"}`}>
       {
         selectedPlaylist && (
           <>
@@ -104,7 +111,7 @@ const Display = () => {
                           <span>{album}</span>
                         </div>
                         <div className="col">
-                          <span>{duration}</span>
+                          <span>{msToMinutesAndSeconds(duration)}</span>
                         </div>
                       </div>
                     )

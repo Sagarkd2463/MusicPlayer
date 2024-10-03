@@ -43,7 +43,7 @@
 .tracks .row {
     padding: 0.5rem 1rem;
     display: grid;
-    grid-template-columns: 0.3fr 3.1fr 2fr 0.1fr;
+    grid-template-columns: 0.3fr 3.1fr 1.9fr 0.1fr;
 }
 
 .row:hover {
