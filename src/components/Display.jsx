@@ -45,6 +45,34 @@ const Display = ({ headerBackground }) => {
     return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
   };
 
+  const playTrack = async (id, name, artists, image, context_uri, track_number) => {
+    const response = await axios.put(
+      `https://api.spotify.com/v1/me/player/play`,
+      {
+        context_uri,
+        offset: {
+          position: track_number - 1
+        },
+        position_ms: 0,
+      },
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (response.status === 204) {
+      const currentlyPlaying = { id, name, artists, image };
+
+      dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
+      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+    } else {
+      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+    }
+  };
+
   return (
     <div className='container' headerBackground={headerBackground} style={`${({ headerBackground }) => headerBackground ? "#000000dc" : "none"}`}>
       {
@@ -82,18 +110,12 @@ const Display = ({ headerBackground }) => {
 
               <div className="tracks">
                 {
-                  selectedPlaylist.tracks.map(({
-                    id,
-                    name,
-                    artists,
-                    image,
-                    duration,
-                    album,
-                    context_uri,
-                    track_number,
-                  }, index) => {
+                  selectedPlaylist.tracks.map(({ id, name, artists, image, duration, album, context_uri, track_number }, index) => {
                     return (
-                      <div className="row" key={id}>
+                      <div
+                        className="row"
+                        key={id}
+                        onClick={() => playTrack(id, name, artists, image, context_uri, track_number)}>
                         <div className="col">
                           <span>{index + 1}</span>
                         </div>

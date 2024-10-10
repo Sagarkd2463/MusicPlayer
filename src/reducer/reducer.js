@@ -54,6 +54,13 @@ const reducer = (state, action) => {
             };
         }
 
+        case reducerCases.SET_PLAYLIST_ID: {
+            return {
+                ...state,
+                selectedPlaylistId: action.selectedPlaylistId,
+            };
+        }
+
         default:
             return state;
     }
