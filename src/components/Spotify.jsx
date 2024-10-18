@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import Display from './Display';
 import Footer from './Footer';
 import { usePlayerProvider } from '../context/PlayerContext';
-import '../styles/Spotify.css';
 import axios from 'axios';
 import { reducerCases } from '../reducer/constants';
 

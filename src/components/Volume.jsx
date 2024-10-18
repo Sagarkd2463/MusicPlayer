@@ -1,6 +1,5 @@
 import React from 'react';
 import { usePlayerProvider } from '../context/PlayerContext';
-import '../styles/Volume.css';
 import axios from 'axios';
 
 const Volume = () => {

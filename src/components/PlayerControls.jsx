@@ -3,7 +3,6 @@ import { BsFillPlayCircleFill, BsFillPauseCircleFill, BsShuffle } from 'react-ic
 import { CgPlayTrackNext, CgPlayTrackPrev } from 'react-icons/cg';
 import { FiRepeat } from 'react-icons/fi';
 import { usePlayerProvider } from '../context/PlayerContext';
-import '../styles/PlayerControls.css';
 import axios from 'axios';
 import { reducerCases } from '../reducer/constants';
 

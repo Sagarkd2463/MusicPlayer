@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { usePlayerProvider } from '../context/PlayerContext';
 import axios from 'axios';
 import { reducerCases } from '../reducer/constants';
-import '../styles/Playlists.css';
 
 const Playlists = () => {
 

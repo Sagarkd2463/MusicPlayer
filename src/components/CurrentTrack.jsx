@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { usePlayerProvider } from '../context/PlayerContext';
-import '../styles/CurrentTrack.css';
 import axios from 'axios';
 import { reducerCases } from '../reducer/constants';
 

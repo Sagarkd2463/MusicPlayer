@@ -1,12 +1,11 @@
 import React from 'react';
-import '../styles/Login.css';
 
 const Login = () => {
 
     const handleClickSpotify = () => {
-        const clientID = "0cb246e45242405ebbbb127455a34d53";
-        const redirectUrl = "http://localhost:5173/";
-        const apiUrl = "https://accounts.spotify.com/authorize";
+        const clientID = import.meta.env.VITE_CLIENT_ID;
+        const redirectUrl = import.meta.env.VITE_REDIRECT_URL;
+        const apiUrl = import.meta.env.VITE_API_URL;
         const scope = [
             'user-read-email',
             'user-read-private',

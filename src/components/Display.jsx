@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { AiFillClockCircle } from 'react-icons/ai';
-import '../styles/Display.css';
 import { usePlayerProvider } from '../context/PlayerContext';
 import axios from 'axios';
 import { reducerCases } from '../reducer/constants';
 
-const Display = ({ headerBackground }) => {
+const Display = ({ headerbackground }) => {
 
   const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] = usePlayerProvider();
 
@@ -74,7 +73,7 @@ const Display = ({ headerBackground }) => {
   };
 
   return (
-    <div className='container' headerBackground={headerBackground} style={`${({ headerBackground }) => headerBackground ? "#000000dc" : "none"}`}>
+    <div className='container' headerbackground={headerbackground}>
       {
         selectedPlaylist && (
           <>

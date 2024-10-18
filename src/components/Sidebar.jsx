@@ -1,7 +1,6 @@
 import React from 'react';
 import { IoLibrary } from 'react-icons/io5';
 import { MdHomeFilled, MdSearch } from 'react-icons/md';
-import '../styles/Sidebar.css';
 import Playlists from './Playlists';
 
 const Sidebar = () => {
