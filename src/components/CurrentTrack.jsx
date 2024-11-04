@@ -29,9 +29,8 @@ const CurrentTrack = () => {
                     image: item.album.images[2].url,
 
                 };
+                dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
             }
-
-            dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
         };
         getCurrentTrack();
     }, [token, dispatch]);
@@ -40,13 +39,13 @@ const CurrentTrack = () => {
         <div className='container'>
             {
                 currentlyPlaying && (
-                    <div className="track">
+                    <div className="flex items-center gap-4">
                         <div className="track_image">
                             <img src={currentlyPlaying.image} alt="currentlyplaying" />
                         </div>
-                        <div className="track_info">
-                            <h4>{currentlyPlaying.name}</h4>
-                            <h6>{currentlyPlaying.artists.join(", ")}</h6>
+                        <div className="flex flex-col gap-[0.3rem]">
+                            <h4 className='text-[white]'>{currentlyPlaying.name}</h4>
+                            <h6 className='text-[#b3b3b3]'>{currentlyPlaying.artists.join(", ")}</h6>
                         </div>
                     </div>
                 )

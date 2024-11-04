@@ -77,19 +77,23 @@ const Display = ({ headerbackground }) => {
       {
         selectedPlaylist && (
           <>
-            <div className="playlist">
+            <div className="flex items-center gap-8 mx-8 my-0">
               <div className="image">
-                <img src={selectedPlaylist.image} alt="selectedplaylist" />
+                <img
+                  className='h-60 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]'
+                  src={selectedPlaylist.image}
+                  alt="selectedplaylist" />
               </div>
-              <div className="details">
+              <div className="flex flex-col gap-4 text-[#e0dede]">
                 <span className='type'>PLAYLIST</span>
-                <h1 className="title">{selectedPlaylist.name}</h1>
+                <h1 className="text-white text-4xl">{selectedPlaylist.name}</h1>
                 <p className="description">{selectedPlaylist.description}</p>
               </div>
             </div>
 
             <div className="list">
-              <div className="header__row">
+              <div className="grid grid-cols-[0.3fr_3fr_2fr_0.1fr] text-[#dddcdc] sticky transition-[0.3s] duration-[ease-in-out] 
+              mt-4 mb-0 mx-0 px-12 py-4 top-[15vh]">
                 <div className="col">
                   <span>#</span>
                 </div>
@@ -107,31 +111,34 @@ const Display = ({ headerbackground }) => {
                 </div>
               </div>
 
-              <div className="tracks">
+              <div className="flex flex-col mb-20 mx-8 my-0">
                 {
                   selectedPlaylist.tracks.map(({ id, name, artists, image, duration, album, context_uri, track_number }, index) => {
                     return (
                       <div
-                        className="row"
+                        className="grid grid-cols-[0.3fr_3.1fr_1.9fr_0.1fr] px-4 py-2 hover:bg-[rgba(0,0,0,0.7)]"
                         key={id}
                         onClick={() => playTrack(id, name, artists, image, context_uri, track_number)}>
-                        <div className="col">
+                        <div className="flex items-center text-[#dddcdc]">
                           <span>{index + 1}</span>
                         </div>
 
-                        <div className="col detail">
+                        <div className="flex items-center text-[#dddcdc] flex gap-4">
                           <div className="image">
-                            <img src={image} alt="track" />
+                            <img
+                              className='h-10'
+                              src={image}
+                              alt="track" />
                           </div>
-                          <div className="info">
+                          <div className="flex flex-col">
                             <span className="name">{name}</span>
                             <span>{artists}</span>
                           </div>
                         </div>
-                        <div className="col">
+                        <div className="flex items-center text-[#dddcdc]">
                           <span>{album}</span>
                         </div>
-                        <div className="col">
+                        <div className="flex items-center text-[#dddcdc]">
                           <span>{msToMinutesAndSeconds(duration)}</span>
                         </div>
                       </div>

@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer utilities {
+  .scrollbar {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 0.7rem;
+    max-height: 2rem;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+@layer utilities {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0.7rem;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}

@@ -3,9 +3,9 @@ import React from 'react';
 const Login = () => {
 
     const handleClickSpotify = () => {
-        const clientId = import.meta.env.VITE_SPOTIFY_API_CLIENT_ID;
-        const redirectUrl = import.meta.env.VITE_SPOTIFY_REDIRECT_URL;
-        const apiUrl = import.meta.env.VITE_SPOTIFY_API_URL;
+        const clientId = '0cb246e45242405ebbbb127455a34d53';
+        const redirectUrl = 'http://localhost:5173/';
+        const apiUrl = 'https://accounts.spotify.com/authorize';
 
         const scope = [
             'user-read-email',
@@ -25,22 +25,18 @@ const Login = () => {
 
     return (
         <>
-            <div className="relative flex items-center justify-center mt-16 mb-8 ml-16 mr-16">
+            <div className="flex flex-col items-center justify-center h-screen w-screen bg-green-600 gap-20">
                 <img
-                    className="w-auto h-12 md:h-16 lg:h-20 xl:h-28 2xl:h-32 object-cover"
+                    className="h-[20vh]"
                     src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Full_Logo_RGB_Green.png"
                     alt="spotify" />
             </div>
 
-            <div className="relative flex items-center justify-center mt-16 ml-12 mr-5">
-                <button
-                    onClick={handleClickSpotify}
-                    className="text-center font-medium 
-                    pt-2 pb-2 pl-3 pr-3 bg-green-500 rounded-lg text-white shadow-lg 
-                    hover:bg-green-700 transition-all duration-300">
-                    Connect Spotify
-                </button>
-            </div>
+            <button
+                onClick={handleClickSpotify}
+                className="bg-[black] text-[#49f585] text-[1.4rem] cursor-pointer px-20 py-4 rounded-[5rem] border-[none]">
+                Connect Spotify
+            </button>
         </>
     );
 };

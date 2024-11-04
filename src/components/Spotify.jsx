@@ -43,10 +43,13 @@ const Spotify = () => {
     }, [dispatch, token]);
 
     return (
-        <div className='container'>
-            <div className="spotify_body">
+        <div className='max-w-[100vw] max-h-screen overflow-hidden grid grid-rows-[85vh_15vh]'>
+            <div className="grid grid-cols-[15vw_85vw] h-full w-full bg-gradient-to-b from-transparent to-black bg-[#205764]">
                 <Sidebar />
-                <div className="body" ref={displayRef} onScroll={bodyScrolled}>
+                <div
+                    className="h-full w-full overflow-auto scrollbar"
+                    ref={displayRef}
+                    onScroll={bodyScrolled}>
                     <Navbar navBackground={navBackground} />
                     <div className="body_contents">
                         <Display headerBackground={headerBackground} />

@@ -66,28 +66,36 @@ const PlayerControls = () => {
 
 
     return (
-        <div className='container'>
-            <div className="shuffle">
-                <BsShuffle />
+        <div className='flex items-center justify-center gap-8'>
+            <div className="text-[2rem]">
+                <BsShuffle className=' text-[#b3b3b3] transition-[0.2s] duration-[ease-in-out] hover:text-[white]' />
             </div>
 
-            <div className="previous">
-                <CgPlayTrackPrev onClick={() => changeTrack("previous")} />
+            <div className="text-[2rem]">
+                <CgPlayTrackPrev
+                    className=' text-[#b3b3b3] transition-[0.2s] duration-[ease-in-out] hover:text-[white]'
+                    onClick={() => changeTrack("previous")} />
             </div>
 
-            <div className="state">
+            <div className="text-[2rem]">
                 {playerState ?
-                    <BsFillPauseCircleFill onClick={changeState} />
+                    <BsFillPauseCircleFill
+                        className='text-[white]'
+                        onClick={changeState} />
                     :
-                    <BsFillPlayCircleFill onClick={changeState} />}
+                    <BsFillPlayCircleFill
+                        className='text-[white]'
+                        onClick={changeState} />}
             </div>
 
-            <div className="next">
-                <CgPlayTrackNext onClick={() => changeTrack("next")} />
+            <div className="text-[2rem]">
+                <CgPlayTrackNext
+                    className=' text-[#b3b3b3] transition-[0.2s] duration-[ease-in-out] hover:text-[white]'
+                    onClick={() => changeTrack("next")} />
             </div>
 
-            <div className="repeat">
-                <FiRepeat />
+            <div className="text-[2rem]">
+                <FiRepeat className=' text-[#b3b3b3] transition-[0.2s] duration-[ease-in-out] hover:text-[white]' />
             </div>
         </div>
     );

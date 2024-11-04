@@ -32,12 +32,13 @@ const Playlists = () => {
     };
 
     return (
-        <div className='container'>
-            <ul className='playlist-list'>
+        <div className='h-full overflow-hidden'>
+            <ul className='list-none flex flex-col gap-4 p-4 h-[52vh] max-h-full overflow-auto custom-scrollbar'>
                 {
                     playlists.map(({ name, id }) => {
                         return (
                             <li
+                                className='flex gap-4 cursor-pointer transition-[0.3s] duration-[ease-in-out] hover:text-[white]'
                                 key={id}
                                 onClick={() => changeCurrentPlaylist(id)}>
                                 {name}

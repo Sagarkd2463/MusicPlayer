@@ -23,8 +23,13 @@ const Volume = () => {
     };
 
     return (
-        <div className='container'>
-            <input type="range" min={0} max={100} onMouseUp={(e) => setVolume(e)} />
+        <div className='flex justify-end content-center'>
+            <input
+                type="range"
+                className='w-60 h-2 rounded-[2rem]'
+                min={0}
+                max={100}
+                onMouseUp={(e) => setVolume(e)} />
         </div>
     );
 };
