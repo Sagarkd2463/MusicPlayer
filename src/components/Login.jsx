@@ -1,11 +1,12 @@
 import React from 'react';
+import config from '../config/config';
 
 const Login = () => {
 
     const handleClickSpotify = () => {
-        const clientId = '';
-        const redirectUrl = 'http://localhost:5173/';
-        const apiUrl = 'https://accounts.spotify.com/authorize';
+        const clientId = config.spotify.CLIENTID;
+        const redirectUrl = config.redirect.url;
+        const apiUrl = config.api.url;
 
         const scope = [
             'user-read-email',
@@ -15,7 +16,9 @@ const Login = () => {
             'user-read-currently-playing',
             'user-read-playback-position',
             'user-top-read',
-            'user-read-recently-played'
+            'user-read-recently-played',
+            'playlist-read-private',
+            'playlist-read-collaborative'
         ];
 
         window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(

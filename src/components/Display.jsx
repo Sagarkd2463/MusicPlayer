@@ -10,30 +10,46 @@ const Display = ({ headerbackground }) => {
 
   useEffect(() => {
     const getInitialPlaylist = async () => {
-      const response = await axios.get(`https://api.spotify.com/v1/playlists/${selectedPlaylistId}`, {
-        headers: {
-          Authorization: "Bearer " + token,
-          "Content-Type": "application/json",
-        },
-      });
-      const selectedPlaylist = {
-        id: response.data.id,
-        name: response.data.name,
-        description: response.data.description.startsWith("<a>") ? "" : response.data.description,
-        image: response.data.images[0].url,
-        tracks: response.data.tracks.items.map(({ track }) => ({
-          id: track.id,
-          name: track.name,
-          artists: track.artists.map((artist) => artist.name),
-          image: track.album.images[2].url,
-          duration: track.duration_ms,
-          album: track.album.name,
-          context_uri: track.album.uri,
-          track_number: track.track_number,
-        })),
-      };
-      dispatch({ type: reducerCases.SET_PLAYLIST, selectedPlaylist });
+      if (!selectedPlaylistId) {
+        console.error("No playlist ID provided");
+        return;
+      }
+
+      try {
+        const response = await axios.get(
+          `https://api.spotify.com/v1/playlists/${selectedPlaylistId}`,
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        const selectedPlaylist = {
+          id: response.data.id,
+          name: response.data.name,
+          description: response.data.description.startsWith("<a>") ? "" : response.data.description,
+          image: response.data.images[0]?.url || "fallback-image-url",
+          tracks: response.data.tracks.items.map(({ track }) => ({
+            id: track.id,
+            name: track.name,
+            artists: track.artists.map((artist) => artist.name),
+            image: track.album.images[2]?.url || track.album.images[0]?.url || "fallback-image-url",
+            duration: track.duration_ms,
+            album: track.album.name,
+            context_uri: track.album.uri,
+            track_number: track.track_number,
+          })),
+        };
+
+        console.log("Fetched playlist:", selectedPlaylist);
+        dispatch({ type: reducerCases.SET_PLAYLIST, selectedPlaylist });
+      } catch (error) {
+        console.error("Error fetching playlist:", error.response?.data || error.message);
+      }
     };
+
     getInitialPlaylist();
   }, [token, dispatch, selectedPlaylistId]);
 
@@ -45,30 +61,31 @@ const Display = ({ headerbackground }) => {
   };
 
   const playTrack = async (id, name, artists, image, context_uri, track_number) => {
-    const response = await axios.put(
-      `https://api.spotify.com/v1/me/player/play`,
-      {
-        context_uri,
-        offset: {
-          position: track_number - 1
+    try {
+      const response = await axios.put(
+        `https://api.spotify.com/v1/me/player/play`,
+        {
+          context_uri,
+          offset: { position: track_number - 1 },
+          position_ms: 0,
         },
-        position_ms: 0,
-      },
-      {
-        headers: {
-          Authorization: "Bearer " + token,
-          "Content-Type": "application/json",
-        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 204) {
+        console.log("Track playing successfully!");
+        const currentlyPlaying = { id, name, artists, image };
+        dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
+        dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
       }
-    );
-
-    if (response.status === 204) {
-      const currentlyPlaying = { id, name, artists, image };
-
-      dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
-      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
-    } else {
-      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+    } catch (error) {
+      console.error("Error playing track:", error.response?.data || error.message);
+      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: false });
     }
   };
 

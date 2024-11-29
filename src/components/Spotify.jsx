@@ -51,7 +51,7 @@ const Spotify = () => {
                     ref={displayRef}
                     onScroll={bodyScrolled}>
                     <Navbar navBackground={navBackground} />
-                    <div className="body_contents">
+                    <div>
                         <Display headerBackground={headerBackground} />
                     </div>
                 </div>
