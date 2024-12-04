@@ -10,16 +10,15 @@ import { reducerCases } from '../reducer/constants';
 const Spotify = () => {
 
     const [{ token }, dispatch] = usePlayerProvider();
-    const displayRef = useRef();
     const [navBackground, setNavBackground] = useState(false);
     const [headerBackground, setHeaderBackground] = useState(false);
+    const bodyRef = useRef();
 
     const bodyScrolled = () => {
-        displayRef.current.scrollTop >= 30
+        bodyRef.current.scrollTop >= 30
             ? setNavBackground(true)
             : setNavBackground(false);
-
-        displayRef.current.scrollTop >= 268
+        bodyRef.current.scrollTop >= 268
             ? setHeaderBackground(true)
             : setHeaderBackground(false);
     };
@@ -34,12 +33,27 @@ const Spotify = () => {
             });
             const userInfo = {
                 userId: data.id,
-                userName: data.display_name,
+                name: data.display_name,
                 email: data.email,
+                userUrl: data.external_urls.spotify
             };
             dispatch({ type: reducerCases.SET_USER, userInfo });
         };
         getUserInfo();
+    }, [dispatch, token]);
+
+    useEffect(() => {
+        const getPlaybackState = async () => {
+            const { data } = await axios.get("https://api.spotify.com/v1/me/player", {
+                headers: {
+                    Authorization: "Bearer " + token,
+                    "Content-Type": "application/json",
+                },
+            });
+            console.log(data);
+            dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: data.is_playing });
+        };
+        getPlaybackState();
     }, [dispatch, token]);
 
     return (
@@ -48,7 +62,7 @@ const Spotify = () => {
                 <Sidebar />
                 <div
                     className="h-full w-full overflow-auto scrollbar"
-                    ref={displayRef}
+                    ref={bodyRef}
                     onScroll={bodyScrolled}>
                     <Navbar navBackground={navBackground} />
                     <div>

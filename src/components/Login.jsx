@@ -18,12 +18,9 @@ const Login = () => {
             'user-top-read',
             'user-read-recently-played',
             'playlist-read-private',
-            'playlist-read-collaborative'
         ];
 
-        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(
-            " "
-        )}&response_type=token&show_dialog=true`;
+        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join('%20')}&response_type=token&show_dialog=true`;
     };
 
     return (

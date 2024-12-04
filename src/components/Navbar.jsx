@@ -5,23 +5,32 @@ import { usePlayerProvider } from '../context/PlayerContext';
 
 const Navbar = ({ navbackground }) => {
 
-  const [{ userInfo }] = usePlayerProvider();
+  const [state] = usePlayerProvider();
+  const { userInfo } = state;
 
   return (
-    <div className='flex justify-between items-center h-[15vh] sticky transition-[0.3s] duration-[ease-in-out] p-8 top-0'
-      navbackground={navbackground}>
+    <div
+      className={`flex justify-between items-center h-[15vh] sticky transition-[0.3s] duration-[ease-in-out] p-8 top-0`}
+      style={{ background: navbackground }}
+    >
+      {/* Search Box */}
       <div className="bg-[white] w-[30%] flex items-center gap-2 px-4 py-[0.4rem] rounded-[2rem]">
         <FaSearch />
         <input
           type="text"
-          placeholder='Artists, songs or podcasts'
-          className='border-0 h-8 w-full focus:outline-none'
+          placeholder="Artists, songs or podcasts"
+          className="border-0 h-8 w-full focus:outline-none"
         />
       </div>
+
+      {/* Profile Section */}
       <div className="bg-[black] flex justify-center items-center pr-4 px-[0.4rem] py-[0.3rem] rounded-[2rem]">
-        <a href="#" className='flex justify-center items-center gap-2 no-underline font-[bold] text-[white]'>
-          <CgProfile className='text-[1.3rem] bg-[#282828] text-[#c7c5c5] p-[0.2rem] rounded-2xl' />
-          <span>{userInfo?.userName}</span>
+        <a
+          href="/"
+          className="flex justify-center items-center gap-2 no-underline font-[bold] text-[white]"
+        >
+          <CgProfile className="text-[1.3rem] bg-[#282828] text-[#c7c5c5] p-[0.2rem] rounded-2xl" />
+          <span>{userInfo?.name || 'Guest'}</span>
         </a>
       </div>
     </div>

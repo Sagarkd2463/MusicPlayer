@@ -9,4 +9,3 @@ export const PlayerProvider = ({ initialState, reducer, children }) => (
 );
 
 export const usePlayerProvider = () => useContext(PlayerContext);
-

@@ -13,24 +13,24 @@ const CurrentTrack = () => {
                 "https://api.spotify.com/v1/me/player/currently-playing",
                 {
                     headers: {
-                        Authorization: "Bearer " + token,
                         "Content-Type": "application/json",
+                        Authorization: "Bearer " + token,
                     },
                 }
             );
 
-            if (response.data !== "") {
-                const { item } = response.data;
-
-                const currentlyPlaying = {
-                    id: item.id,
-                    name: item.name,
-                    artists: item.artists.map((artist) => artist.name),
-                    image: item.album.images[2].url,
-
+            if (response?.data?.item) {
+                const currentPlaying = {
+                    id: response.data.item.id,
+                    name: response.data.item.name,
+                    artists: response.data.item.artists.map((artist) => artist.name),
+                    image: response.data.item.album.images[2]?.url || "fallback-image-url",
                 };
-                dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
+                dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
+            } else {
+                dispatch({ type: reducerCases.SET_PLAYING, currentPlaying: null });
             }
+
         };
         getCurrentTrack();
     }, [token, dispatch]);
